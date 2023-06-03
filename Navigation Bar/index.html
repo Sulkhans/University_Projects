@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        .bar {
+            background-color: #181818;
+            width: 100%;
+            height: 55px;
+            display: flex;
+        }
+        .menu {
+            background-color: #2a2a2a;
+            width: 152;
+            position: absolute;
+            top: 55;
+            display: none;
+        }
+        p {
+            font-size: 20px;
+            color: #ced4da;
+            font-family: 'Segoe UI', 'Open Sans';
+            margin-top: 0px;
+            padding: 10px 20px 45px 20px;
+            line-height: 1.5;
+        }
+        p:hover {
+            background-color: #2a2a2a;
+        }
+        a {
+            text-decoration: none;
+            color: #ced4da;
+            font-family: 'Segoe UI', 'Open Sans';
+        }
+        .a1 {
+            font-size: 16px;
+            display: block;
+            height: 60px; 
+            line-height: 3.5;
+            padding-left: 20;
+            
+        }
+        .a1:hover {
+            background-color: #1f1f1f;
+        }
+        .a2 {
+            font-size: 20px;
+            line-height: 2.5;
+            padding: 0px 20px 0px 20px;
+        }
+        .a2:hover {
+            background-color: #2a2a2a;
+        }
+        p:hover + .menu {
+            display: block;
+        }
+        .menu:hover {
+            display: block;
+        }
+    </style>
+    <body>
+        <div class="bar">
+            <p>&#9776</p>
+            <div class="menu">
+                <a class="a1" href="">HTML</a>
+                <a class="a1" href="">CSS</a>
+                <a class="a1" href="">JavaScript</a>
+            </div>
+            <a class="a2" href="">Home</a>
+            <a class="a2" href="">Contact us</a>
+        </div>
+    </body>
+</html>
