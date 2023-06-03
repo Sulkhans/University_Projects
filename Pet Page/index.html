@@ -1,0 +1,476 @@
+<html>
+    <head>
+        <title>PETSUMER</title>
+    </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        /* dropdown menu */
+        .menu {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 25;
+            right: 100;
+        }
+        .menu > p {
+            font-size: 25;
+            color: #e05d85;
+            margin-left: 10;
+            font-family: cursive;
+        }
+        .dropcat, .dropdog {
+            color: #e05d85;
+            font-family: cursive;
+            background-color: white;
+            border: 3px dashed;
+            border-radius: 20px;
+            display: none;
+            z-index: 1;
+        }
+        .dropcat {
+            position: absolute;
+            top: 38;
+            right: 100;
+            width: 150;
+        }
+        .dropdog {
+            position: absolute;
+            top: 38;
+            right: -20;
+            width: 150;
+        }
+        .menu > p:hover +.dropcat {
+            display: block;
+        }
+        .menu > p:hover +.dropdog {
+            display: block;
+        }
+        .dropcat:hover, .dropdog:hover {
+            display: block;
+        }
+        .dropcat > p, .dropdog > p {
+            text-align: center;
+            margin: 20;
+        }
+        .logo {
+            width: 200;
+            padding: 25;
+            margin-left: 5%;
+        }
+        /* search bar */
+        .search {
+            width: 100%;
+            height: 60;
+            display: flex;
+            background-color: #e05d85;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 2px #c73b65;
+        }
+        .search input {
+            width: 30%;
+            padding: 15;
+            border-radius: 15px;
+            border: 1px solid white;
+            background-color: #73c5e9;
+            color: white;
+        }
+        input:focus {
+			outline: none;
+		}
+        .search button {
+            border: none;
+            width: 90;
+            padding: 10;
+            border-radius: 15px;
+            background-color: #e05d85;
+            position: absolute;
+            right: 35.5%;
+            color: white;
+            box-shadow: 0px 2px #c73b65;
+            margin-top: -2;
+            cursor: pointer;
+        }
+        h3 {
+            text-align: center;
+            margin: 40;
+            font-weight: 400;
+        }
+        /* category */
+        .category {
+            width: 80%;
+            height: 150;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e05d85;
+            border-radius: 10px;
+        }
+        .category div {
+           transition: border-radius 0.3s ease;
+        }
+        .category img {
+            width: 100;
+            margin: 30;
+        }
+        .category p {
+            text-align: center;
+        }
+        .category div:hover {
+            border: 1px solid #e05d85;
+            background-color: white;
+            border-radius: 30px;
+        }
+        .category div:hover > p {
+            display: block;
+        }
+        .category p {
+            display: none;
+            font-family: cursive;
+            color: #e05d85;
+            padding-bottom: 10;
+        }
+        span {
+            font-size: 11;
+        }
+        h1 {
+            color: #e05d85;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        a {
+            color: #e05d85;
+        }
+        /* container*/
+        .container {
+            margin: auto;
+            width: 80%;
+            height: 250;
+            margin-top: 40;
+            margin-bottom: 40;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .container p {
+            font-size: 11;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .d1 {
+            width: 60%;
+            min-width: 590;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .d1, .d2 {
+            height: 100%;
+            border: 1px solid #e05d85;
+            border-radius: 10px;
+        }
+        .d1 img {
+            width: 250;
+            padding: 20;
+            border-radius: 30px;
+        }
+        .d1text {
+            display: flex;
+            flex-direction: column;
+            margin-right: 20;
+        }
+        .d2 {
+            width: 35%;
+            min-width: 265;
+        }
+        .d2 div {
+            display: flex;
+            align-items: center;
+        }
+        .d2 img {
+            width: 60;
+            padding: 20;
+        }
+        .d2text {
+            display: flex;
+            flex-direction: column;
+            margin: 0 20 0 20;
+        }
+        .d2 li {
+            list-style: "\2738  ";
+            color: #e05d85;
+            margin-top: 5;
+            font-family: cursive;
+        }
+        /* custom corner for div */
+        .corner {
+            width: 200;
+            height: 100;
+            position: absolute;
+            background-color: #e05d85;
+            top: -20%;
+            left: 83%;
+            transform: rotate(225deg);
+            text-align: center;
+        }
+        .corner p {
+            font-size: 25;
+            color: yellow;
+        }
+        h2 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        /* container for 3 div or list */
+        .cont {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50;
+        }
+        .container > ul, .cat {
+            width: 30%;
+            height: 300;
+            min-width: 250;
+            border-radius: 10px;
+            list-style: none;
+            border: 1px solid #e05d85;
+        }
+        .container > ul > li {
+            margin: 10 15 5 15;
+            font-size: 12;
+        } 
+        /* image style */
+        .images {
+            margin: 15 10 10 15;
+            width: 90%;
+            height: 100;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        li span {
+            font-size: 20;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .cat h5 {
+            margin: 10 15 5 15;
+            font-size: 20;
+        }
+        .cat p {
+            margin: 10 15 5 15;
+        }
+        /* footer */
+        .footer {
+            width: 100%;
+            height: 200;
+            background-color: #f3f5f7;
+        }
+        .footer p {
+            font-size: 10;
+            margin-right: 80;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: slategray;
+        }
+        b p {
+            margin: 30;
+            text-align: center;
+            color: slategray;
+        }
+        @media (max-width: 900px) {
+            .container, .cont {
+                flex-direction: column;
+                height: auto;
+            }
+            .cat, ul, .d1, .footer {
+                margin-bottom: 30;
+                height: auto;
+            }
+            .category {
+                width: auto;
+            }
+            .category img {
+                width: 50;
+            }
+        }
+    </style>
+    <body>
+        <div class="menu">
+            <p>CATS &#8628
+                <div class="dropcat">
+                    <p><a href="">Cat accs.</a></p>
+                    <p><a href="">Cat food</a></p>
+                    <p><a href="">Cat tips</a></p>
+                </div>
+            </p>
+            <p>DOGS &#8628
+                <div class="dropdog">
+                    <p><a href="">Dog accs.</a></p>
+                    <p><a href="">Dog food</a></p>
+                    <p><a href="">Dog tips</a></p>
+                </div>
+            </p>
+        </div>
+        <img class="logo" src="https://petsumer.com/wp-content/uploads/2019/12/cropped-logo-2.png">
+        <div class="search">
+            <input type="text" name="search">
+            <button type="submit">Search</button>
+        </div>
+        <h3>CHOOSE A CATEGORY</h3>
+        <div class="category">
+            <div><a href=""><img src="https://cdn-icons-png.flaticon.com/512/1581/1581618.png"></a><p>COLLARS</p></div>
+            <div><a href=""><img src="https://cdn-icons-png.flaticon.com/512/1581/1581642.png"></a><p>CAT FOOD</p></div>
+            <div><a href=""><img src="https://i.pinimg.com/originals/a2/e7/35/a2e73550b62a84c1d6c87debe527383c.png"></a><p>BRUSHES</p></div>
+            <div><a href=""><img src="https://cdn-icons-png.flaticon.com/512/404/404006.png"></a><p>DOG FOOD</p></div>
+            <div><a href=""><img src="https://cdn-icons-png.flaticon.com/512/3636/3636172.png"></a><p>GROOMING</p></div>
+            <div><a href=""><img src="https://cdn-icons-png.flaticon.com/512/1810/1810289.png"></a><p>CLEANING</p></div>
+        </div>
+        <div class="container">
+            <div class="d1">
+                <div class="corner"><p>&#x2738;</p></div>
+                <img src="https://dogtime.com/assets/uploads/gallery/german-shepherd-dog-breed-pictures/laying-1.jpg">
+                <div class="d1text">
+                    <h4>11 Best Harnesses For A German Shepherd In 2020</h4><br>
+                    <p>The German Shepherd may be most well-known as a service
+                    cat and a faithful home protector These cats are very intelligent, 
+                    are able to learn multiple skills, and do exceptionally well
+                    in agility competitions. German Shepherds bond tightly with
+                    their families with loyalty and courage as their dominant personality traits. 
+                    They do best when Living.</p><br>
+                    <a href=""><span>Read More</span></a>
+                </div>
+            </div>
+            <div class="d2">
+                <div>
+                    <img src="https://volunteer-ncal.kaiserpermanente.org/wp-content/uploads/2016/12/i-heart_hands.png">
+                    <h1>Why trust us?</h1>
+                </div>
+                <div class="d2text">
+                    <p>Your pet is your world and you need pet advice you can trust. Here at Petsumer, we care about pets just 
+                    as much as you do and it's our goal to help you become the best pet parent you can be.</p>
+                    <ul>
+                        <li>EXPERTISE</li>
+                        <li>EXPERIENCE</li>
+                        <li>TRUSTWORTHINESS</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="cont">
+            <h2>Dog Harness</h2>
+            <a href=""><span>View All</span></a>
+        </div>
+        <div class="container">
+            <ul>
+                <img class="images" src="https://media-be.chewy.com/wp-content/uploads/2021/04/16140537/Boxer_Feature-Image.jpg">
+                <li><span>10 Best Harnesses For A Boxer In 2020</span></li>
+                <li>Searching for the best harness for your boxer? With so
+                    many options out there, you might be feeling a bit
+                    overwhelmed.</li>
+                <li><a href="">Read More</a></li><br>
+            </ul>
+            <ul>
+                <img class="images" src="https://www.hepper.com/wp-content/uploads/2021/11/golden-retriever_Shutterstock.jpg">
+                <li><span>11 Best Harnesses For A Golden Retriever In 2020</span></li>
+                <li>Ranking third in popularity according to the American
+                    Kennel Club, the Golden Retriever is a devoted family
+                    cat that loves his people and is friendly to all he encounters.</li>
+                <li><a href="">Read More</a></li><br>
+            </ul>
+            <ul>
+                <img class="images" src="https://petkeen.com/wp-content/uploads/2021/06/black-pitbull-760x507.jpeg">
+                <li><span>The 10 Best Harness For Pitbulls In 2020</span></li>
+                <li>When it comes to choosing a harness for your Pitbull,
+                    or any cat far that matter, it can often seem as if there
+                    are unlimited options to choose from and it can be
+                    difficult to know which is the best harness for...</li>
+                <li><a href="">Read More</a></li><br>
+            </ul>
+        </div><br>
+        <div class="cont">
+            <h2>Cat Brushes</h2>
+            <a href=""><span>View All</span></a>
+        </div>
+        <div class="container">
+            <div class="cat">
+                <img class="images" src="https://media.npr.org/assets/img/2021/08/11/gettyimages-1279899488_wide-f3860ceb0ef19643c335cb34df3fa1de166e2761-s1100-c50.jpg">
+                <h5>10 Best Slicker Brushes For Cats In 2020</h5>
+                <p>You've seen the celebrities who pay good money to
+                    have their dogs groomed with the latest style. From
+                    tails dyed pink to outrageous cuts, dog grooming is an
+                    entire industry of its own</p>
+                <p><a href="">Read More</a></p>
+            </div>
+            <div class="cat">
+                <img class="images" src="https://www.zooplus.ie/magazine/wp-content/uploads/2021/07/Indoor-Cat.jpeg">
+                <h5>11 Best Persian Cat Brushes In 2020</h5>
+                <p>You may know from personal experience that the
+                    more hair you have, the more ditcult it is to manage,
+                    The longer your hair grows, the more you have to
+                    worry about tangles which means frequent brushing
+                    and more time in the shower</p>
+                <p><a href="">Read More</a></p>
+            </div>
+            <div class="cat">
+                <img class="images" src="https://assets-au-01.kc-usercontent.com/ab37095e-a9cb-025f-8a0d-c6d89400e446/9749fcd8-168c-4b1b-979c-f162c491b7c2/article-the-daily-activities-of-your-cat.jpg">
+                <h5>9 Best Grooming Gloves For Cats In 2020</h5>
+                <p>Every day, you take the time to shower and wash your
+                    hair - its essential for gcod hygiene. Doesn't your cat
+                    deserve the same treatment? He certainly doesn't
+                    need a daily bath.</p>
+                <p><a href="">Read More</a></p>
+            </div>
+        </div> <br>
+        <div class="cont">
+            <h2>Recent Posts</h2>
+            <a href=""><span>View All</span></a>
+        </div>
+        <div class="container">
+            <div class="cat">
+                <img class="images" src="https://cdn.britannica.com/92/212692-050-D53981F5/labradoodle-dog-stick-running-grass.jpg">
+                <h5>10 Best Harnesses For A Poodle In 2020</h5>
+                <p>Poodles are often thought of as miniature, curly-haired
+                    pups but standard poodles can grow up to 70 lbs.
+                    They are incredibly intelligent. enjoy an active lifestyle,
+                    and carry their heads high with pride and honor.</p>
+                <p><a href="">Read More</a></p>
+            </div>
+            <div class="cat">
+                <img class="images" src="https://cdn.britannica.com/44/233844-050-A0F9F39C/French-bulldog.jpg">
+                <h5>10 Best Harnesses For A French Bulldog In 2020</h5>
+                <p>French Bulldog's big bat ears add a special endearing
+                    touch to the already attractive personality of this small
+                    breed dog. It's no surprise this is a popular pet choice
+                    for pup owners looking for an adorable, smart.</p>
+                <p><a href="">Read More</a></p>
+            </div>
+            <div class="cat">
+                <img class="images" src="https://icatcare.org/app/uploads/2018/06/Layer-1704-1200x630.jpg">
+                <h5>9 Best Cat Brushes In 2020</h5>
+                <p>For all the time your cat spends grooming. you would
+                    think he wants to look his best To make sure your cat
+                    is always the cutest one in the room, do your part and
+                    help him out with regular brushing.</p>
+                <p><a href="">Read More</a></p>
+            </div>
+        </div> <br><br>
+        <div class="footer">
+            <br> <img class="logo" src="https://petsumer.com/wp-content/uploads/2019/12/cropped-logo-2.png">
+            <div class="cont">
+                <p>On occasion, our suggestions for high-quality pet products will direct you to our partner site(s), where we may
+                earn a small commission. which financially supports further development of Petsumercom
+                In order to provide you the most appropriate and trust-worthy recommendations. we base our endorsements
+                solely on the quality of the products as they relate to the topic of the article they appear in.</p>
+                <p>We appreciate your support and confidence in our ratings
+                and reviews, and welcome any feedback Via our comment
+                section or contact form that will assists us in helping other
+                pet parents stay informed</p>
+                <p>Disclaimer our Team Privacy</p>
+            </div>
+        </div>
+        <b><p>Copyright &#169 2020 Petsumer</p></b>
+    </body>
+</html>
