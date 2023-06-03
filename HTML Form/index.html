@@ -1,0 +1,214 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="//cdn.web-fonts.ge/fonts/alk-life/css/alk-life.min.css">
+        <link rel="stylesheet" href="//cdn.web-fonts.ge/fonts/alk-sanet/css/alk-sanet.min.css">
+        <title>Register</title>
+    </head>
+    <style>
+        body {
+            background-color: black;
+            font-family: "ALK Sanet", sans-serif;
+        }
+        .back {
+            width: 90%;
+            background-color: #d6d8d8;
+            border-radius: 15px;
+            margin: auto;
+        }
+        h1 {
+            padding-top: 30px;
+            font-family: calibri;
+            text-align: center;
+            -webkit-text-stroke: 0.5px red;
+        }
+        .line {
+            width: 60%;
+            height: 5px;
+            background-image: url(https://www.shutterstock.com/image-vector/diagonal-lines-pattern-repeat-straight-600w-320897477.jpg);
+            margin: auto;
+            border: 1px solid #d69245;
+            border-radius: 10px;
+        }
+        .part1, .part2 {
+            width: 90%;
+            box-shadow: 10px 10px 70px;
+            background-image: linear-gradient( #d69245, #ccb8a1);
+            margin: auto;
+            margin-top: 30;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .part2 {   
+            background-image: linear-gradient(#3ebd72, #bebebe);
+            margin-top: 50;
+            margin-bottom: 30;
+        }
+        .container1 {
+            display: flex;
+            justify-content: center;
+            margin-left: 10%;
+        }
+        .container1 input, .container2 input, .div1 input {
+            margin-top: 15%;
+            margin-bottom: 15%;
+            
+        }
+        .container2 {
+            width: 35%;
+            margin-right: 10%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+        .div1 {
+            width: 40%;
+            background-color: darkorange;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            margin-right: 10%;
+            padding-top: 70;
+            flex-direction: column;
+        }
+        .div1 form {
+            position: relative;
+            margin-top: -15%;
+        }
+        .div1 input {
+            border: none;
+            border-bottom: 2px solid darkblue;
+            background-color: transparent;
+            outline: none;
+            height: 40px;
+        }
+        .div1 input::placeholder {
+            color: transparent;
+        }
+        input[type="date"] {
+            width: 280px;
+            height: 40px;
+            color: beige;
+        }
+        .div1 label {
+            color: beige;
+            font-size: 13;
+            font-family: 'Segoe UI', sans-serif;
+            position: absolute;
+            left: 0;
+            top: 50;
+            transition: transform 0.3s ease-in-out;
+            pointer-events: none;
+        }
+        .div1 input:focus {
+            border-bottom: 2px solid red;
+        }
+        .div1 input:focus + label, input:not(:placeholder-shown) + label {
+            transform: translateY(-20px);
+            font-size: 11px;
+        }
+        .part2 label {
+            font-family: "ALK Sanet", sans-serif;
+        }
+        .part2 input {
+            margin-top: 20;
+        }
+        textarea {
+            width: 100%;
+            resize: vertical;
+            font-family: calibri;
+            font-size: 16px;
+            border: 2px solid navy;
+            border-radius: 10px; 
+            background-color: rgba(255, 255, 255, 0.137);
+            max-height: 215px;
+            min-height: 50px;
+        }
+        h2 {
+            font-family: "ALK Life", sans-serif;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .container2 form label {
+            border: 1px solid white;
+            border-radius: 20px;
+            background-color: #aee1eb;
+            font-size: 16px;
+            padding: 5 5;
+        }
+        .container2 form div {
+            margin-top: 10;
+            margin-bottom: -50;
+        }
+        .container2 form div input:checked + label {
+            background-color: #65bd89;
+        }
+        @media (max-width: 900px) {
+            .part1, .part2 {
+                flex-direction: column;
+            }
+            .div1, .container1, .container2 {
+                width: 90%;
+                margin: auto;
+                margin-bottom: 50;
+            }
+        }
+        
+    </style>
+    <body>
+        <div class="back">
+            <h1>საკონფერენციო რეგისტრაციის ფორმა</h1>
+            <div class="line"></div>
+            <div class="part1">
+                <div class="container1">
+                    <form>
+                        <input type="text" name="first" placeholder="სახელი" size="30"><br>
+                        <input type="text" name="last" placeholder="გვარი" size="30"><br>
+                        <input type="text" name="mail" placeholder="ელ.ფოსტა" size="30"><br>
+                        <input type="password" name="pass" placeholder="პაროლი" size="30"><br>
+                    </form>
+                </div>
+                <div class="div1">
+                    <form>
+                        <input type="text" name="subject" placeholder="." size="35"><label>შეიყვანეთ თემის დასახელება</label>
+                    </form>    
+                    <form>   
+                        <input type="text" name="author" placeholder="." size="35"><label>შეიყვანეთ თანაავტორები</label>
+                    </form>     
+                    <form>
+                        <input type="text" name="phone" placeholder="." size="35"><label>შეიყვანეთ ტელეფონი</label>
+                    </form>    
+                    <form>
+                        <input type="date" name="subject"><label>აირჩიერთ თარიღი</label>
+                    </form> 
+                </div>
+            </div>
+            <div class="part2">
+                <div class="container1">
+                   <form>
+                        <label>ატვირთეთ ფაილი</label><br>
+                        <input type="file" accept=".pdf, .doc, .docx">
+                        <textarea placeholder="  შეიყვანეთ ტექსტი" rows="7" cols="10"></textarea>
+                   </form>
+                </div>
+                <div class="container2">
+                    <form>
+                        <h2>აირჩიეთ სქესი</h2>
+                        <input type="radio" name="gender" value="male" checked>მამრობითი
+                        <input type="radio" name="gender" value="female" style="margin-left: 50;">მდედრობითი
+                    </form>
+                    <form style="margin-top: -20;">
+                        <h2>პრეზენტაციის ენა</h2>
+                        <div><input type="checkbox" name="lang" value="ge"><label>ქართული</label></div>
+                        <div><input type="checkbox" name="lang" value="en"><label>ინგლისური</label></div>
+                        <div><input type="checkbox" name="lang" value="other"><label>სხვა</label></div>
+                    </form>
+                </div>
+            </div>
+            <br>
+        </div>
+    </body>
+</html>
